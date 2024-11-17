@@ -1,0 +1,113 @@
+/************ Layout ************/
+:root {
+    --text-primary: #EA580C;
+    --text-normal: rgb(39, 39, 42);
+    --text-hover: rgb(194, 65, 12);
+    --text-muted: rgba(39, 39, 42, 0.85);
+}
+.d-flex {
+    display: flex;
+}
+.flex-column {
+    flex-direction: column;
+}
+.justify-center {
+    justify-content: center;
+}
+.align-center {
+    align-items: center;
+}
+.gap-3 {
+    gap: 1rem;
+}
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.pb-5 {
+    padding-bottom: 3rem;
+}
+.m-0 {
+    margin: 0;
+}
+.mt-0 {
+    margin-top: 0;
+}
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+.mx-auto {
+    margin: auto;
+}
+.w-100 {
+    width: 100%;
+}
+.text-primary {
+    color: var(--text-primary);
+}
+.text-muted {
+    color: var(--text-muted);
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.ff-main {
+    font-family: "Montserrat", sans-serif;
+}
+.fw-bold {
+    font-weight: bold;
+}
+.fs-2 {
+    font-size: 1.75rem;
+}
+.fs-4 {
+    font-size: 1.25rem;
+}
+/********************************/
+
+
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    color: var(--text-normal);
+    line-height: 24px;
+}
+a {
+    color: var(--text-normal);
+}
+a:hover {
+    color: var(--text-hover);
+}
+header {
+    background-image: linear-gradient(rgb(255, 247, 237), rgba(255, 247, 237, 0));
+}
+header .container {
+    height: 100px;
+    justify-content: space-between;
+}
+.navbar-logo a {
+    text-decoration: none;
+}
+.nav-item {
+    text-decoration: none;
+}
+.container {
+    max-width: 768px;
+}
+.main-img {
+    border-radius: 10px;
+}
+main {
+    background-image: linear-gradient(0deg, rgb(255, 247, 237), rgba(255, 247, 237, 0) 45px);
+}
+footer {
+    /*background-color: rgb(255, 247, 237);*/
+    background-color: rgb(255, 242, 232);
+}
+footer .container {
+    min-height: 100px;
+}
