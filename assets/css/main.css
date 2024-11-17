@@ -111,3 +111,14 @@ footer {
 footer .container {
     min-height: 100px;
 }
+code {
+    color: rgb(126, 34, 206);
+    font-size: 16px;
+    font-weight: bold;
+}
+.solution {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+a[href*="jsfiddle"] {
+    display: none;
+}
