@@ -1,6 +1,6 @@
 /************ Layout ************/
 :root {
-    --text-primary: #EA580C;
+    --text-primary: rgb(234,88,12);
     --text-normal: rgb(39, 39, 42);
     --text-hover: rgb(194, 65, 12);
     --text-muted: rgba(39, 39, 42, 0.85);
@@ -119,6 +119,17 @@ code {
 .solution {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
-a[href*="jsfiddle"] {
-    display: none;
+.solutions-list li,
+.solutions-list li a {
+    color: rgb(126, 34, 206);
+}
+.post-tag {
+/*    background-color: rgba(126, 34, 206, 0.15);
+    color: rgb(126, 34, 206);*/
+    background-color: rgba(234,88,12, 0.05);
+    color: rgb(234,88,12);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 90%;
+    font-weight: 600;
 }
