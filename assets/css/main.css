@@ -36,6 +36,9 @@
 .mb-2 {
     margin-bottom: 0.5rem;
 }
+.me-2 {
+    margin-right: 0.5rem;
+}
 .mx-auto {
     margin: auto;
 }
