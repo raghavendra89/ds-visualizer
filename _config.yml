@@ -1,3 +1,5 @@
 collections:
-  - stacks
-  - binarytrees
+  stacks:
+    output: true
+  binarytrees:
+    output: true

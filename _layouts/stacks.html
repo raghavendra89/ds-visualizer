@@ -37,69 +37,11 @@
                     <p>Go through some of these stack problems and their visualizations!</p>
 
                     <ol class="solutions-list">
+                        {% for stack in site.stacks %}
                         <li>
-                            <a href="visualizer.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+                            <a href="/stacks/{{ stack.slug }}">{{ stack.title }}</a>
                         </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</a>
-                        </li>
-                        <li>
-                            <a href="visualizer.html">It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</a>
-                        </li>
+                        {% endfor %}
                     </ol>
                 </section>
             </article>
