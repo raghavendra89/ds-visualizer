@@ -1,7 +1,6 @@
 ---
 layout: visualizer
 title: Find the minimum value in the stack
-slug: first-example
 ---
 
 #### Problem:

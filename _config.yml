@@ -1,5 +1,7 @@
 collections:
   stacks:
     output: true
+    permalink: /:collection/:path
   binarytrees:
     output: true
+    permalink: /:collection/:path
