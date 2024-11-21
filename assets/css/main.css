@@ -96,7 +96,9 @@ a:hover {
     color: var(--text-hover);
 }
 header {
-    background-image: linear-gradient(rgb(255, 247, 237), rgba(255, 247, 237, 0));
+    background-image: linear-gradient(rgb(255, 247, 237), rgba(255, 247, 237, 0.35));
+    position: sticky;
+    top: 0;
 }
 header .container {
     height: 100px;
