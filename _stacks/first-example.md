@@ -21,7 +21,3 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 #### Solution & Visualize:
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.
-
-<div class="solution">
-    <iframe width="100%" height="430" src="//jsfiddle.net/DiogoBernardelli/vuc85mok/embedded/js,result/dark/" frameborder="0" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
-</div>

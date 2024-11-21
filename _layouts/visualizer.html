@@ -5,7 +5,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/rouge-base16-monokai-dark.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/stacks/assets/css/animator.css">
 </head>
 <body>
     {% include header.html %}
@@ -31,11 +33,125 @@
 
                 <section>
                     {{ content }}
+
+                    <div class="solution">
+                        <div class="d-flex justify-center gap-4 mb-4">
+                            <div class="tab-btn solution-tab p-2 active" data-target="solution-result">Result</div>
+                            <div class="tab-btn solution-tab p-2" data-target="solution-code">Code</div>
+                        </div>
+
+                        <div>
+                            <div class="tab-panel solution-tab-panel p-2 active" id="solution-result">
+                                <div id="stack-visualizer">
+                                </div>
+                            </div>
+
+                            <div class="tab-panel solution-tab-panel p-2" id="solution-code">
+                                <div class="d-flex gap-3 code-tabs">
+                                    <div class="tab-btn code-tab p-2 active" data-target="solution.js">solution.js</div>
+                                    <div class="tab-btn code-tab p-2" data-target="stack.js">stack.js</div>
+                                    <div class="tab-btn code-tab p-2" data-target="stack-displayer.js">stack-displayer.js</div>
+                                    <div class="tab-btn code-tab p-2" data-target="animator-module.js">animator-module.js</div>
+                                </div>
+
+                                <div class="d-flex">
+                                    <div class="tab-panel code-tab-panel active" id="solution.js">
+                                        {% highlight javascript %}
+{% include_relative assets/js/{{ page.slug }}.js %}
+                                        {% endhighlight %}
+                                    </div>
+                                    <div class="tab-panel code-tab-panel" id="stack.js">
+                                        {% highlight javascript %}
+{% include_relative assets/js/stack.js %}
+                                        {% endhighlight %}
+                                    </div>
+                                    <div class="tab-panel code-tab-panel" id="stack-displayer.js">
+                                        {% highlight javascript %}
+{% include_relative assets/js/stack-displayer.js %}
+                                        {% endhighlight %}
+                                    </div>
+                                    <div class="tab-panel code-tab-panel" id="animator-module.js">
+                                        {% highlight javascript %}
+{% include_relative assets/js/animator-module.js %}
+                                        {% endhighlight %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </article>
         </div>
     </main>
 
     {% include footer.html %}
+
+    <template id="stack-template">
+        <div class="stack-wrapper">
+            <div class="stack-ops">
+                <strong>
+                    <span class="text-underline">&nbsp;PUSH&nbsp;</span>
+                </strong>
+                <span></span>
+                <strong>
+                    <small>Last</small> <br>
+                    <span class="text-underline">&nbsp;POP&nbsp;</span>
+                </strong>
+            </div>
+            <div class="stack-ops-values">
+                <div class="stack-item hidden push-element">5</div>
+                <span></span>
+                <div class="stack-item pop-element">4</div>
+            </div>
+            <div class="stack-container">
+                <span></span>
+                <div class="stack"></div>
+                <span></span>
+            </div>
+            <div class="stack-description">
+                <h4></h4>
+                <p></p>
+            </div>
+        </div>
+    </template>
+
+    <script src="/stacks/assets/js/stack-displayer.js"></script>
+    <script src="/stacks/assets/js/animator-module.js"></script>
+    <script src="/stacks/assets/js/stack.js"></script>
+    <script>
+        let tabBtns = document.getElementsByClassName('tab-btn');
+        let solutionTabs = document.getElementsByClassName('solution-tab-panel');
+        let codeTabs = document.getElementsByClassName('code-tab-panel');
+        for (let tabBtn of tabBtns) {
+            tabBtn.addEventListener('click', (e) => {
+                if (e.target.classList.contains('solution-tab')) {
+                    for (let currentTabBtn of tabBtns) {
+                        if (currentTabBtn.classList.contains('solution-tab')) {
+                            currentTabBtn.classList.remove('active');
+                        }
+                    }
+
+                    for (let solutionTab of solutionTabs) {
+                        solutionTab.classList.remove('active');
+                    }
+                } else {
+                    for (let currentTabBtn of tabBtns) {
+                        if (currentTabBtn.classList.contains('code-tab')) {
+                            currentTabBtn.classList.remove('active');
+                        }
+                    }
+
+                    for (let codeTab of codeTabs) {
+                        codeTab.classList.remove('active');
+                    }
+                }
+
+                e.target.classList.add('active');
+                document.getElementById(e.target.dataset.target)
+                        .classList.add('active');
+            });
+        }
+    </script>
+    <script src="/stacks/assets/js/{{ page.slug }}.js"></script>
 </body>
 </html>
