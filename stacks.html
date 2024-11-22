@@ -2,35 +2,54 @@
 layout: datastructure
 permalink: /stacks/
 title: Stacks - Learn by visualizing
-subtitle: Stacks are simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+subtitle: Stack works on the basis LIFO or FILO principal.
 ---
 
 <section>
     <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        A Stack is a linear data structure that stores an ordered sequence of elements based on the LIFO (Last-In-First-Out) principle. This means that the last element inserted into the stack is the first one to be removed. It is also referred to as the FILO (First-In-Last-Out) principle, where the element that was inserted first is the one that will be removed last.
+    </p>
+
+    <figure class="py-2 w-100 mx-auto text-center">
+        <img class="main-img" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=450">
+        <figcaption>Stack Example</figcaption>
+    </figure>
+
+
+    <p>
+        As shown in the diagram, a stack has only one open end, and elements can only be accessed from the top. To implement a stack, you only need a top pointer that points to the top-most element in the stack. Sometimes, a limit is imposed on the number of elements that can be added to the stack. If you attempt to insert more elements than the allowed limit, a condition known as stack overflow occurs. Have you ever wondered how <a href="https://stackoverflow.com" target="_black">Stackoverflow</a> got its name?
     </p>
 
 
-    <h4>Where does it come from?</h4>
+    <h4>Stack Operations</h4>
+    <p>There are two main operations that can be performed on the stack:</p>
+    <ol>
+        <li><strong>Push:</strong> Insert an element onto the top of the stack.</li>
+        <li><strong>Pop:</strong> Remove the top-most element from the stack.</li>
+    </ol>
+
+    <figure class="py-2 w-100 mx-auto text-center">
+        <img class="main-img" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=450">
+        <figcaption>Stack operations - Push and Pop</figcaption>
+    </figure>
+
     <p>
-        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+        There are other operations like <strong>Peek</strong>, which is to retrieve the top most element of the stack without deleting it. You can also perform other operations like to check if the stack is empty or full.
     </p>
 
     <p>
-        Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+        Stacks are commonly used in expression evaluation, parenthesis matching, and syntax parsing, which are widely used in calculator programs. Additionally, stacks can be utilized to implement efficient backtracking algorithms.
     </p>
 
-
-    <h4>Where does it come from?</h4>
     <p>
-        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+        Questions related to stacks are frequently asked in technical interviews and coding challenges. Below, I’ve implemented solutions to some of these problems, along with animations to help visualize the algorithms and enhance your understanding.
     </p>
 </section>
 
 <section>
     <h2 class="text-center">Stack Problems</h2>
 
-    <p>Go through some of these stack problems and their visualizations!</p>
+    <p>Take a look at some of these stack problems and their visualizations!</p>
 
     <ol class="solutions-list">
         {% for stack in site.stacks %}
