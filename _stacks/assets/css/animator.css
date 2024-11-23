@@ -84,13 +84,15 @@
 }
 .stack-description p {
     margin: 0;
+    font-size: 16px;
 }
 .text-underline {
     text-decoration: underline;
 }
 
 .solution-result-display {
-    border-bottom: 1px solid;
+    max-width: 500px;
+    margin: auto;
 }
 .solution-result-display label {
     display: block;
@@ -101,11 +103,17 @@
     max-width: 500px;
     border: 1px solid;
     height: 28px;
-}
-.sv-input-array {
     width: 100%;
+}
+.sv-comment {
+    border-top: 1px solid;
 }
 .sv-input-feedback {
     font-size: 90%;
     color: rgb(220, 53, 69);
+}
+#final-output {
+    width: 100%;
+    border-radius: 4px;
+    border: 2px solid rgb(234,88,12);
 }

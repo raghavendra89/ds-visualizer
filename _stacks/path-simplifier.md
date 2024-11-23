@@ -1,6 +1,6 @@
 ---
 layout: visualizer
-title: Reverse a String Using Stack
+title: Simplify Absolute UNIX Path
 ---
 
 #### Problem:

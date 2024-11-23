@@ -6,6 +6,9 @@
     --text-muted: rgba(39, 39, 42, 0.85);
     --text-code: rgb(126, 34, 206);
 }
+.d-none {
+    display: none;
+}
 .d-flex {
     display: flex;
 }
@@ -99,6 +102,7 @@ body {
     margin: 0;
     font-family: "Lato", sans-serif;
     font-weight: 400;
+    font-size: 18px;
     color: var(--text-normal);
     line-height: 24px;
 }
@@ -108,8 +112,14 @@ a {
 a:hover {
     color: var(--text-hover);
 }
+h4 {
+    margin: 1rem 0;
+}
+p {
+    margin: 0.75rem 0;
+}
 header {
-    background-image: linear-gradient(rgb(255, 247, 237), rgba(255, 247, 237, 0.35));
+    background-image: linear-gradient(rgb(255, 247, 237), rgb(255,251,247));
     position: sticky;
     top: 0;
 }

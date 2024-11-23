@@ -1,0 +1,34 @@
+<div class="solution-result-display mb-4 p-2">
+    <h4 class="m-0 mb-2">Input:</h4>
+    {% for input in page.inputs %}
+        {% if input.type == 'string' %}
+            <div class="mb-4">
+                <label>{{ input.label }}</label>
+                <input type="text" class="sv-input sv-input-number" name="">
+                <div class="sv-input-feedback d-none">This is the custom help text for this input</div>
+            </div>
+        {% else %}
+            <div class="mb-4">
+                <label>{{ input.label }}</label>
+                <input type="text" class="sv-input sv-input-array" name="">
+                <div class="sv-input-feedback d-none">Enter the array elements followed by a comma</div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+
+    <div class="mb-2 text-center">
+        <button class="btn btn-primary" id="btn-show-visualization">Show Visualization</button>
+    </div>
+
+    <h4 class="m-0 mb-2">Output:</h4>
+
+    <div class="mb-2 p-2" id="final-output">
+        &nbsp;&nbsp;&nbsp;
+    </div>
+</div>
+
+<div class="sv-comment text-center p-2 mb-2"></div>
+
+<div id="stack-visualizer">
+</div>

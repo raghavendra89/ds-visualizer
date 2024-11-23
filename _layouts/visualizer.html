@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Data Structures</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -42,8 +43,7 @@
 
                         <div>
                             <div class="tab-panel solution-tab-panel p-2 active" id="solution-result">
-                                <div id="stack-visualizer">
-                                </div>
+                                {% include stack-result-area.html %}
                             </div>
 
                             <div class="tab-panel solution-tab-panel p-2" id="solution-code">
@@ -101,7 +101,7 @@
             <div class="stack-ops-values">
                 <div class="stack-item hidden push-element">5</div>
                 <span></span>
-                <div class="stack-item pop-element">4</div>
+                <div class="stack-item pop-element">&nbsp;</div>
             </div>
             <div class="stack-container">
                 <span></span>

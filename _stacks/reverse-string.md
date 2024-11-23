@@ -1,6 +1,9 @@
 ---
 layout: visualizer
 title: Reverse a String Using Stack
+inputs:
+  - type: string
+    label: Please enter the input string
 ---
 
 #### Problem:
