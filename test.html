@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stack Test</title>
+    <link rel="stylesheet" type="text/css" href="_stacks/assets/css/animator.css">
+    <style>
+        .p-2 {
+            padding: 0.5rem;
+        }
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .btn {
+            cursor: pointer;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            border: 1px solid;
+        }
+        .btn-primary {
+            background-color: rgb(126, 34, 206);
+            color: #FFF;
+        }
+        .btn-primary:hover {
+            background-color: rgba(126, 34, 206, 0.9);
+        }
+        .d-none {
+            display: none;
+        }
+        #final-output {
+            display: inline-block;
+            border-radius: 4px;
+            border: 2px solid rgb(234,88,12);
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <div class="solution-result-display mb-4">
+            <h4>Input:</h4>
+            <div class="mb-2">
+                <label>Please enter the input array</label>
+                <input type="text" class="sv-input sv-input-array" name="">
+                <div class="sv-input-feedback d-none">Enter the array elements followed by a comma</div>
+            </div>
+
+            <div class="mb-2">
+                <label>Please enter the input</label>
+                <input type="text" class="sv-input sv-input-number" name="">
+                <div class="sv-input-feedback d-none">This is the custom help text for this input</div>
+            </div>
+
+            <div class="mb-2">
+                <button class="btn btn-primary" id="btn-show-visualization">Show Visualization</button>
+            </div>
+
+            <h4>Output:</h4>
+
+            <div class="mb-2 p-2" id="final-output">
+                &nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+
+        <div class="sv-comment text-center mb-2"></div>
+
+        <div id="stack-visualizer">
+        </div>
+    </div>
+
+    <template id="stack-template">
+        <div class="stack-wrapper">
+            <div class="stack-ops">
+                <strong>
+                    <span class="text-underline">&nbsp;PUSH&nbsp;</span>
+                </strong>
+                <span></span>
+                <strong>
+                    <small>Last</small> <br>
+                    <span class="text-underline">&nbsp;POP&nbsp;</span>
+                </strong>
+            </div>
+            <div class="stack-ops-values">
+                <div class="stack-item hidden push-element">5</div>
+                <span></span>
+                <div class="stack-item pop-element">&nbsp;</div>
+            </div>
+            <div class="stack-container">
+                <span></span>
+                <div class="stack"></div>
+                <span></span>
+            </div>
+            <div class="stack-description">
+                <h4></h4>
+                <p></p>
+            </div>
+        </div>
+    </template>
+
+    <script src="_stacks/assets/js/stack-displayer.js"></script>
+    <script src="_stacks/assets/js/animator-module.js"></script>
+    <script src="_stacks/assets/js/stack.js"></script>
+    <script src="_stacks/assets/js/reverse-string.js"></script>
+    <script>
+        // On click
+        let showVisualizationBtn = document.getElementById('btn-show-visualization');
+        showVisualizationBtn.addEventListener('click', () => {
+            // Validate the inputs
+            let inputs = document.getElementsByClassName('sv-input');
+            let args = [];
+
+            for (let input of inputs) {
+                if (input.classList.contains('sv-input-array')) {
+                    // Remove last comma
+                    let arrayValue = input.value.replace(/,\s*$/, "");
+                    let feedbackElement = input.nextElementSibling;
+
+                    if (! /^\s*\d+\s*(,\s*\d+\s*)*$/.test(arrayValue)) {
+                        // feedbackElement.innerText = 'Please enter the array elements followed by a comma';
+                        // feedbackElement.classList.remove('d-none');
+                    } else {
+                        feedbackElement.classList.add('d-none');
+                        let array = arrayValue.split(',');
+                        array.forEach((value, index) => {
+                            array[index] = parseInt(value.trim());
+                        });
+
+                        args.push(array);
+                    }
+                } else {
+                    args.push(input.value);
+                }
+            }
+
+            document.getElementById('final-output')
+                    .innerHTML = '&nbsp;&nbsp;&nbsp;';
+            document.getElementById('stack-visualizer')
+                    .innerHTML = '';
+            // Call the solution function with the inputs
+            stackSolution(args);
+        });
+    </script>
+    <script>
+        animatorModule.setAnimationSpeed(1.5);
+    </script>
+</body>
+</html>
