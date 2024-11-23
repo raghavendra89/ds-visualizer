@@ -118,6 +118,7 @@
     <script src="/stacks/assets/js/stack-displayer.js"></script>
     <script src="/stacks/assets/js/animator-module.js"></script>
     <script src="/stacks/assets/js/stack.js"></script>
+    <script src="/stacks/assets/js/{{ page.slug }}.js"></script>
     <script>
         let tabBtns = document.getElementsByClassName('tab-btn');
         let solutionTabs = document.getElementsByClassName('solution-tab-panel');
@@ -151,7 +152,44 @@
                         .classList.add('active');
             });
         }
+
+
+        let showVisualizationBtn = document.getElementById('btn-show-visualization');
+        showVisualizationBtn.addEventListener('click', () => {
+            // Validate the inputs
+            let inputs = document.getElementsByClassName('sv-input');
+            let args = [];
+
+            for (let input of inputs) {
+                if (input.classList.contains('sv-input-array')) {
+                    // Remove last comma
+                    let arrayValue = input.value.replace(/,\s*$/, "");
+                    let feedbackElement = input.nextElementSibling;
+
+                    if (! /^\s*\d+\s*(,\s*\d+\s*)*$/.test(arrayValue)) {
+                        // feedbackElement.innerText = 'Please enter the array elements followed by a comma';
+                        // feedbackElement.classList.remove('d-none');
+                    } else {
+                        feedbackElement.classList.add('d-none');
+                        let array = arrayValue.split(',');
+                        array.forEach((value, index) => {
+                            array[index] = parseInt(value.trim());
+                        });
+
+                        args.push(array);
+                    }
+                } else {
+                    args.push(input.value);
+                }
+            }
+
+            document.getElementById('final-output')
+                    .innerHTML = '&nbsp;&nbsp;&nbsp;';
+            document.getElementById('stack-visualizer')
+                    .innerHTML = '';
+            // Call the solution function with the inputs
+            stackSolution(args);
+        });
     </script>
-    <script src="/stacks/assets/js/{{ page.slug }}.js"></script>
 </body>
 </html>

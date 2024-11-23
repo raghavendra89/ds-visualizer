@@ -88,3 +88,24 @@
 .text-underline {
     text-decoration: underline;
 }
+
+.solution-result-display {
+    border-bottom: 1px solid;
+}
+.solution-result-display label {
+    display: block;
+    font-weight: 700;
+}
+.solution-result-display input {
+    border-radius: 4px;
+    max-width: 500px;
+    border: 1px solid;
+    height: 28px;
+}
+.sv-input-array {
+    width: 100%;
+}
+.sv-input-feedback {
+    font-size: 90%;
+    color: rgb(220, 53, 69);
+}

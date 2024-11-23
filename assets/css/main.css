@@ -79,6 +79,19 @@
 .fs-4 {
     font-size: 1.25rem;
 }
+.btn {
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid;
+}
+.btn-primary {
+    background-color: rgb(126, 34, 206);
+    color: #FFF;
+}
+.btn-primary:hover {
+    background-color: rgba(126, 34, 206, 0.9);
+}
 /********************************/
 
 

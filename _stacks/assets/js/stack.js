@@ -34,4 +34,8 @@ class Stack {
 
         return value;
     }
+
+    isEmpty() {
+        return this.initialData.length === 0;
+    }
 }

@@ -117,6 +117,22 @@ let animatorModule = (function() {
         })
     }
 
+    function displayCommentAnimate(animation) {
+        return new Promise((resolve) => {
+            document.getElementsByClassName('sv-comment')[0]
+                    .innerText = animation.value;
+            resolve('Comment displayed!');
+        })
+    }
+
+    function displayOutputAnimate(animation) {
+        return new Promise((resolve) => {
+            let outputELement = document.getElementById('final-output');
+            outputELement.innerHTML = animation.value;
+            resolve('Output displayed!');
+        })
+    }
+
     function runSingleAnimation(animation) {
         switch (animation.type) {
             case 'push':
@@ -124,6 +140,12 @@ let animatorModule = (function() {
                 break;
             case 'pop':
                 return popAnimate(animation);
+                break;
+            case 'display-comment':
+                return displayCommentAnimate(animation);
+                break;
+            case 'display-output':
+                return displayOutputAnimate(animation);
                 break;
         }
     }
@@ -181,9 +203,29 @@ let animatorModule = (function() {
         animationSpeed = speed * 1000;
     }
 
+    let displayComment = function (comment) {
+        let animationObject = {
+            type: 'display-comment',
+            value: comment
+        };
+
+        animations.push(animationObject);
+    }
+
+    let displayOutput = function (output) {
+        let animationObject = {
+            type: 'display-output',
+            value: output
+        };
+
+        animations.push(animationObject);
+    }
+
     return {
         performPushAnimation: performPushAnimation,
         performPopAnimation: performPopAnimation,
-        setAnimationSpeed: setAnimationSpeed
+        setAnimationSpeed: setAnimationSpeed,
+        displayComment: displayComment,
+        displayOutput: displayOutput
     }
 })();
