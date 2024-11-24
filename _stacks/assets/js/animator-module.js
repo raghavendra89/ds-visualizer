@@ -17,7 +17,7 @@ class AnimationList {
 let animatorModule = (function() {
     let animations = new AnimationList();
     let animationsRunning = false;
-    let animationSpeed = 2500;
+    let animationSpeed = 1500;
 
     function getMoveDownAnimation(animation) {
         let topElement = animation.stackElement.children[0];
@@ -241,7 +241,7 @@ let animatorModule = (function() {
         runAnimations();
     }
 
-    let clearAnimations = function (output) {
+    let clearAnimations = function () {
         animations = new AnimationList();
         animationsRunning = false;
     }

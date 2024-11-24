@@ -2,6 +2,11 @@
 layout: visualizer
 title: Find The Next Bigger Number
 alt: Find The Next Greater Element
+inputs:
+  - type: array
+    label: Please enter the input array
+  - type: number
+    label: Please enter the reference number
 ---
 
 #### Problem:

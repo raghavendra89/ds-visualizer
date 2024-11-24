@@ -194,15 +194,22 @@
                 }
             }
 
+            animatorModule.clearAnimations();
+
             document.getElementById('final-output')
                     .innerHTML = '&nbsp;&nbsp;&nbsp;';
             document.getElementById('stack-visualizer')
+                    .innerHTML = '<div>Loading...</div>';
+            document.getElementsByClassName('sv-comment')
                     .innerHTML = '';
-            animatorModule.clearAnimations();
-            // Call the solution function with the inputs
+
+            // Add a delay, so previous animations are celared
             setTimeout(() => {
+                document.getElementById('stack-visualizer')
+                        .innerHTML = '';
+                // Call the solution function with the inputs
                 stackSolution(args);
-            }, 500);
+            }, 2000);
         });
 
         function highlightCharacter(string, index) {

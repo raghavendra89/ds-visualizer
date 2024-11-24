@@ -4,7 +4,7 @@ function stackSolution(args) {
     const stack = new Stack(
         [],
         {
-            name: 'Stack',
+            name: 'Input Stack',
             description: 'This stack holds the input array elements.'
         }
     );
@@ -12,7 +12,7 @@ function stackSolution(args) {
     const tempStack = new Stack(
         [],
         {
-            name: 'tempStack',
+            name: 'Temp Stack',
             description: 'This stack will hold the sorted array elements.'
         }
     );
