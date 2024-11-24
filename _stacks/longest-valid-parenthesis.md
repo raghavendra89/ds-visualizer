@@ -1,6 +1,10 @@
 ---
 layout: visualizer
 title: Longest Valid Parentheses
+inputs:
+  - type: string
+    label: Please enter the input string
+    regex: ^([\(-\)]+)$
 ---
 
 #### Problem:

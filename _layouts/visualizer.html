@@ -221,6 +221,16 @@
 
             return highlightText;
         }
+
+        function highlightSubstring(string, startIndex, length) {
+            let highlightText = '<div class="sv-comment-highlight">';
+            highlightText += string.substr(0, startIndex);
+            highlightText += '<span class="sv-comment-highlight-char">'+ string.substr(startIndex, length) +'</span>';
+            highlightText += string.substr(startIndex + length);
+            highlightText += '</div>';
+
+            return highlightText;
+        }
     </script>
 </body>
 </html>
