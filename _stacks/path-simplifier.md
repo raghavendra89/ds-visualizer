@@ -1,6 +1,10 @@
 ---
 layout: visualizer
 title: Simplify Absolute UNIX Path
+inputs:
+  - type: string
+    label: Please enter the UNIX path
+    regex: ^((?!\\).)*$
 ---
 
 #### Problem:
