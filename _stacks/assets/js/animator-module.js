@@ -84,7 +84,6 @@ let animatorModule = (function() {
         return new Promise((resolve) => {
             return pushAnimation.finished.then(() => {
                 animation.stackElement.prepend(duplicateElement);
-                console.log(`Push Animation completed!`);
                 resolve(`Push Animation completed!`);
             });
         })
@@ -111,7 +110,6 @@ let animatorModule = (function() {
             return popAnimation.finished.then(() => {
                 // topElement.remove();
                 // animation.popElement.textContent = topElement.textContent;
-                console.log(`Pop Animation completed!`);
                 resolve(`Pop Animation completed!`);
             });
         })

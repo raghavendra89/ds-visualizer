@@ -35,6 +35,14 @@ class Stack {
         return value;
     }
 
+    top() {
+        if (this.initialData.length == 0) return;
+
+        const value = this.initialData[this.initialData.length - 1];
+
+        return value;
+    }
+
     isEmpty() {
         return this.initialData.length === 0;
     }

@@ -1,6 +1,9 @@
 ---
 layout: visualizer
 title: Sort A Given Stack
+inputs:
+  - type: array
+    label: Please enter the input array
 ---
 
 #### Problem:

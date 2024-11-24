@@ -200,7 +200,9 @@
                     .innerHTML = '';
             animatorModule.clearAnimations();
             // Call the solution function with the inputs
-            stackSolution(args);
+            setTimeout(() => {
+                stackSolution(args);
+            }, 500);
         });
 
         function highlightCharacter(string, index) {
