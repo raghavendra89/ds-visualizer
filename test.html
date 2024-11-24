@@ -51,7 +51,13 @@
             </div>
 
             <div class="mb-2">
-                <label>Please enter the input</label>
+                <label>Please enter the input string</label>
+                <input type="text" class="sv-input sv-input-number" name="">
+                <div class="sv-input-feedback d-none">This is the custom help text for this input</div>
+            </div>
+
+            <div class="mb-2">
+                <label>Please enter the start index</label>
                 <input type="text" class="sv-input sv-input-number" name="">
                 <div class="sv-input-feedback d-none">This is the custom help text for this input</div>
             </div>
@@ -67,7 +73,7 @@
             </div>
         </div>
 
-        <div class="sv-comment text-center mb-2"></div>
+        <div class="sv-comment text-center p-2 mb-2"></div>
 
         <div id="stack-visualizer">
         </div>
@@ -105,7 +111,7 @@
     <script src="_stacks/assets/js/stack-displayer.js"></script>
     <script src="_stacks/assets/js/animator-module.js"></script>
     <script src="_stacks/assets/js/stack.js"></script>
-    <script src="_stacks/assets/js/reverse-string.js"></script>
+    <script src="_stacks/assets/js/index-of-closing-bracket.js"></script>
     <script>
         // On click
         let showVisualizationBtn = document.getElementById('btn-show-visualization');
@@ -144,6 +150,16 @@
             // Call the solution function with the inputs
             stackSolution(args);
         });
+
+        function highlightCharacter(string, index) {
+            let highlightText = '<div class="sv-comment-highlight">';
+            highlightText += string.substr(0, index);
+            highlightText += '<span class="sv-comment-highlight-char">'+ string.substr(index, 1) +'</span>';
+            highlightText += string.substr(index + 1);
+            highlightText += '</div>';
+console.log(highlightText);
+            return highlightText;
+        }
     </script>
     <script>
         animatorModule.setAnimationSpeed(1.5);

@@ -120,8 +120,11 @@ let animatorModule = (function() {
     function displayCommentAnimate(animation) {
         return new Promise((resolve) => {
             document.getElementsByClassName('sv-comment')[0]
-                    .innerText = animation.value;
-            resolve('Comment displayed!');
+                    .innerHTML = animation.value;
+
+            setTimeout(() => {
+                resolve('Comment displayed!');
+            }, animation.timeout);
         })
     }
 
@@ -203,10 +206,11 @@ let animatorModule = (function() {
         animationSpeed = speed * 1000;
     }
 
-    let displayComment = function (comment) {
+    let displayComment = function (comment, timeout = 0) {
         let animationObject = {
             type: 'display-comment',
-            value: comment
+            value: comment,
+            timeout: timeout
         };
 
         animations.push(animationObject);

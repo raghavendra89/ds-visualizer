@@ -1,6 +1,11 @@
 ---
 layout: visualizer
 title: Find the index of closing bracket for a given opening bracket
+inputs:
+  - type: string
+    label: Please enter the input string
+  - type: string
+    label: Please enter the start index
 ---
 
 #### Problem:

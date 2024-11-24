@@ -108,6 +108,17 @@
 .sv-comment {
     border-top: 1px solid;
 }
+.sv-comment-highlight {
+    display: inline-block;
+    letter-spacing: 5px;
+    font-size: 20px;
+    margin-top: 4px;
+    padding: 5px;
+}
+.sv-comment-highlight-char {
+    padding: 4px;
+    border: 2px solid rgb(234,88,12);
+}
 .sv-input-feedback {
     font-size: 90%;
     color: rgb(220, 53, 69);
