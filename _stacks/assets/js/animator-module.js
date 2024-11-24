@@ -214,6 +214,7 @@ let animatorModule = (function() {
         };
 
         animations.push(animationObject);
+        runAnimations();
     }
 
     let displayOutput = function (output) {
@@ -223,6 +224,12 @@ let animatorModule = (function() {
         };
 
         animations.push(animationObject);
+        runAnimations();
+    }
+
+    let clearAnimations = function (output) {
+        animations = [];
+        animationsRunning = false;
     }
 
     return {
@@ -230,6 +237,7 @@ let animatorModule = (function() {
         performPopAnimation: performPopAnimation,
         setAnimationSpeed: setAnimationSpeed,
         displayComment: displayComment,
-        displayOutput: displayOutput
+        displayOutput: displayOutput,
+        clearAnimations: clearAnimations
     }
 })();

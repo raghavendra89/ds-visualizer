@@ -3,6 +3,13 @@ function stackSolution(args) {
     let startIndex = parseInt(args[1]);
     let endIndex = -1;
 
+    if (string[startIndex] !== '[') {
+        animatorModule.displayComment(
+            '<span class="sv-comment-error">Error: There is no opening bracket ([) at the given index.</span>',
+            15000
+        );
+    }
+
     const stack = new Stack(
         [],
         {
@@ -27,12 +34,22 @@ function stackSolution(args) {
                 + highlightCharacter(string, i),
                 500
             );
+
+            // If stack is empty, then the brackets are not valid
+            if (stack.isEmpty()) {
+                animatorModule.displayComment(
+                    '<span class="sv-comment-error">Error: The string does not contain the valid pair of brackets.</span>',
+                    15000
+                );
+                return;
+            }
+
             stack.pop();
 
             if (stack.isEmpty()) {
                 animatorModule.displayComment(
                     'If stack is empty then we have found the end index.',
-                    2000
+                    1500
                 );
                 endIndex = i;
                 break;

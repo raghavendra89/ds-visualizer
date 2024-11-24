@@ -119,6 +119,9 @@
     padding: 4px;
     border: 2px solid rgb(234,88,12);
 }
+.sv-comment-error {
+    color: rgb(220, 53, 69);
+}
 .sv-input-feedback {
     font-size: 90%;
     color: rgb(220, 53, 69);

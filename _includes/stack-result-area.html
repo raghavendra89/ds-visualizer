@@ -4,7 +4,13 @@
         {% if input.type == 'string' %}
             <div class="mb-4">
                 <label>{{ input.label }}</label>
-                <input type="text" class="sv-input sv-input-number" name="">
+                <input type="text" class="sv-input" name="" validation="{{ input.regex }}">
+                <div class="sv-input-feedback d-none">This is the custom help text for this input</div>
+            </div>
+        {% elsif input.type == 'number' %}
+            <div class="mb-4">
+                <label>{{ input.label }}</label>
+                <input type="number" class="sv-input" name="">
                 <div class="sv-input-feedback d-none">This is the custom help text for this input</div>
             </div>
         {% else %}

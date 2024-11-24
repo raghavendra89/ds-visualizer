@@ -52,7 +52,7 @@
 
             <div class="mb-2">
                 <label>Please enter the input string</label>
-                <input type="text" class="sv-input sv-input-number" name="">
+                <input type="text" class="sv-input" name="" validation=".?\[.+\]">
                 <div class="sv-input-feedback d-none">This is the custom help text for this input</div>
             </div>
 
@@ -121,10 +121,12 @@
             let args = [];
 
             for (let input of inputs) {
+                let feedbackElement = input.nextElementSibling;
+                feedbackElement.classList.add('d-none');
+
                 if (input.classList.contains('sv-input-array')) {
                     // Remove last comma
                     let arrayValue = input.value.replace(/,\s*$/, "");
-                    let feedbackElement = input.nextElementSibling;
 
                     if (! /^\s*\d+\s*(,\s*\d+\s*)*$/.test(arrayValue)) {
                         // feedbackElement.innerText = 'Please enter the array elements followed by a comma';
@@ -139,6 +141,15 @@
                         args.push(array);
                     }
                 } else {
+                    if (input.getAttribute('validation')) {
+                        let regex = new RegExp(input.getAttribute('validation'));
+                        if (! regex.test(input.value)) {
+                            feedbackElement.innerText = 'Please enter the string in correct format';
+                            feedbackElement.classList.remove('d-none');
+                            return;
+                        }
+                    }
+
                     args.push(input.value);
                 }
             }
@@ -147,6 +158,7 @@
                     .innerHTML = '&nbsp;&nbsp;&nbsp;';
             document.getElementById('stack-visualizer')
                     .innerHTML = '';
+            animatorModule.clearAnimations();
             // Call the solution function with the inputs
             stackSolution(args);
         });
@@ -157,7 +169,7 @@
             highlightText += '<span class="sv-comment-highlight-char">'+ string.substr(index, 1) +'</span>';
             highlightText += string.substr(index + 1);
             highlightText += '</div>';
-console.log(highlightText);
+
             return highlightText;
         }
     </script>
