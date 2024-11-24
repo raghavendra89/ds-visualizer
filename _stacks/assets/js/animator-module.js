@@ -1,5 +1,21 @@
+class AnimationList {
+    animations = [];
+
+    length() {
+        return this.animations.length;
+    }
+
+    push(animation) {
+        this.animations.push(animation);
+    }
+
+    shift() {
+        return this.animations.shift();
+    }
+}
+
 let animatorModule = (function() {
-    let animations = [];
+    let animations = new AnimationList();
     let animationsRunning = false;
     let animationSpeed = 2500;
 
@@ -160,7 +176,7 @@ let animatorModule = (function() {
         runSingleAnimation(animation)
             .then(() => {
                 animationsRunning = false;
-                if (animations.length) {
+                if (animations.length()) {
                     runAnimations();
                 }
             });
@@ -226,7 +242,7 @@ let animatorModule = (function() {
     }
 
     let clearAnimations = function (output) {
-        animations = [];
+        animations = new AnimationList();
         animationsRunning = false;
     }
 
