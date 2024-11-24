@@ -2,7 +2,7 @@ function stackSolution(args) {
     let array = args[0];
 
     const stack = new Stack(
-        [],
+        array,
         {
             name: 'Input Stack',
             description: 'This stack holds the input array elements.'
@@ -16,11 +16,6 @@ function stackSolution(args) {
             description: 'This stack will hold the sorted array elements.'
         }
     );
-
-    animatorModule.displayComment('Push the array elements to the stack.');
-    while (array.length) {
-        stack.push(array.pop());
-    }
 
     let temp = '';
     while (! stack.isEmpty()) {
