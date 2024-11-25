@@ -1,6 +1,19 @@
 ---
 layout: visualizer
 title: Design Browser History
+noinputtext: |
+    Homepage: wp.com
+    [
+        'visit(x.com)',
+        'visit(fb.com)',
+        'visit(ytb.in)',
+        'back(1)',
+        'back(1)',
+        'forward(1)',
+        'visit(one.com)',
+        'forward(1)',
+        'back(2)'
+    ]
 ---
 
 #### Problem:
@@ -15,6 +28,8 @@ When a set of operations is given, find the active page the user is on at the en
 
 Example: 
 
+**Home Pate:** wp.com
+
 **Input Array (Browser operations):**
 
     [
@@ -25,6 +40,7 @@ Example:
         'back(1)'
         'forward(1)'
         'visit(one.com)'
+        'forward(1)'
         'back(2)'
     ]
 
@@ -32,7 +48,7 @@ Example:
 
 #### Algorithm:
 
-We can solve this using two stacks. When the user performs `visit` or `forward` operations we can keep track of the active urls in stack 1. And when the user performs the `back` operation then we need to pop the urls from stack 1 and push them onto stack 2. The urls in the stack 2 will be used to perform the `forward` opearion. Finally the url at the top of the stack 1 is the current active url.
+We can solve this using two stacks. When the user performs `visit` operations we can keep track of the active urls in stack 1. And when the user performs the `back` operation then we need to pop the urls from stack 1 and push them onto stack 2. The urls in the stack 2 will be used to perform the `forward` opearion. Finally the url at the top of the stack 1 is the current active url.
 
 **Steps:**
 
