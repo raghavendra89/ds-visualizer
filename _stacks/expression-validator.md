@@ -1,6 +1,10 @@
 ---
 layout: visualizer
 title: Check for valid parenthesis
+inputs:
+  - type: string
+    label: Please enter the input string
+    regex: ^([\d\s+\-\*\/\(\)\[\]\{\}]+)$
 ---
 
 #### Problem:
