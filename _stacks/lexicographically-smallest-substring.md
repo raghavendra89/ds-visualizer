@@ -1,6 +1,11 @@
 ---
 layout: visualizer
 title: Find the lexicographically smallest substring with distinct characters
+inputs:
+  - type: string
+    label: Please enter the input string
+    regex: ^[a-z]+$
+    feedback: The string should only contain the lowercase English letters.
 ---
 
 #### Problem:
