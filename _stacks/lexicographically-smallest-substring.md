@@ -28,9 +28,11 @@ To solve this, we will start from the given index of the opening bracket and pus
 
 **Steps:**
 
-1. Loop through the characters starting from the index of the opening bracket.
-2. Push all opening brackets onto the stack.
-3. When a closing bracket is encountered, pop the top element from the stack. If the stack is empty after this operation, the current index will be the index of the closing bracket.
+1. Loop through the characters of the string in reverse order to construct the smallest subsequence.
+2. If duplicate characters are encountered, compare the current character with the first character of the subsequence.
+    1. If the current character is larger than the first character of the subsequence, ignore it.
+    2. If the current character is smaller or equal, prepend it to the subsequence and remove the duplicate character already present in the subsequence.
+3. After completing these steps, the resulting subsequence will be the smallest possible subsequence.
 
 #### Solution & Visualize:
 

@@ -65,7 +65,7 @@ function stackSolution(args) {
 
         i--;
     }
-console.log(smallestString);
+
     animatorModule.displayOutput(smallestString);
     animatorModule.displayComment(
         'Lexicographically smallest subsequence: <br>'
