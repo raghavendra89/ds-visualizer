@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binary Tree in a Canvase</title>
+    <style>
+        #bt-visualizer {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+        canvas {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bt-visualizer">
+        <canvas width="700px" height="500px">
+            Binary Tree Visualization
+        </canvas>
+    </div>
+
+    <script>
+        function drawBinaryTree() {
+            const root = [1, 2, 3, 4, 5, 6, 7];
+
+            const canvas = document.querySelector('canvas');
+            const ctx = canvas.getContext('2d');
+
+            let x = 340;
+            let y = 100;
+            ctx.beginPath();
+            ctx.arc(x, y, 25, 0, Math.PI * 2, true);
+            ctx.stroke();
+
+            x = 183;
+            y = 200;
+            for (var i = 0; i < 2; i++) {
+                ctx.beginPath();
+                ctx.arc(x, y, 25, 0, Math.PI * 2, true);
+                x += 334;
+                // y += 50;
+                ctx.stroke();
+            }
+
+            x = 100;
+            y = 300;
+            for (var i = 0; i < 4; i++) {
+                ctx.beginPath();
+                ctx.arc(x, y, 25, 0, Math.PI * 2, true);
+                x += 166.67;
+                // y += 50;
+                ctx.stroke();
+            }
+
+            x = 60;
+            y = 400;
+            for (var i = 0; i < 8; i++) {
+                ctx.beginPath();
+                ctx.arc(x, y, 25, 0, Math.PI * 2, true);
+                x += 83;
+                // y += 50;
+                ctx.stroke();
+            }
+
+        }
+
+        drawBinaryTree();
+    </script>
+</body>
+</html>
