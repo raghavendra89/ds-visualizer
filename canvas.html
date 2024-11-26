@@ -24,47 +24,104 @@
 
     <script>
         function drawBinaryTree() {
-            const root = [1, 2, 3, 4, 5, 6, 7];
+            const root = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+            let nodes = [];
 
             const canvas = document.querySelector('canvas');
             const ctx = canvas.getContext('2d');
+            ctx.font = "bold 20px sans-serif";
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            // const levels = [];
+            // var i = 0;
+            // while (root.length) {
+            //     levels.push(
+            //         root.splice(0, Math.pow(2, i))
+            //     );
+            //     i++;
+            // }
+
+            // let subLevels;
+            // let x;
+            // let y;
+            // let gap;
+            // for (var i = 0; i < levels.length; i++) {
+            //     subLevels = levels[i];
+
+            //     gap = 700 / (Math.pow(2, i) + 1);
+            //     x = gap;
+            //     y = 100 + (100 * i);
+            //     for (var j = 0; j < subLevels.length; j++) {
+            //         ctx.beginPath();
+            //         ctx.arc(x, y, 25, 0, Math.PI * 2, true);
+            //         ctx.stroke();
+
+            //         x += gap;
+            //     }
+            // }
 
             let x = 340;
             let y = 100;
-            ctx.beginPath();
-            ctx.arc(x, y, 25, 0, Math.PI * 2, true);
-            ctx.stroke();
+            nodes.push({x: x, y: y});
 
-            x = 183;
+            x = 180;
             y = 200;
             for (var i = 0; i < 2; i++) {
-                ctx.beginPath();
-                ctx.arc(x, y, 25, 0, Math.PI * 2, true);
+                nodes.push({x: x, y: y});
                 x += 334;
-                // y += 50;
-                ctx.stroke();
             }
 
             x = 100;
             y = 300;
             for (var i = 0; i < 4; i++) {
-                ctx.beginPath();
-                ctx.arc(x, y, 25, 0, Math.PI * 2, true);
+                nodes.push({x: x, y: y});
                 x += 166.67;
-                // y += 50;
-                ctx.stroke();
             }
 
             x = 60;
             y = 400;
             for (var i = 0; i < 8; i++) {
-                ctx.beginPath();
-                ctx.arc(x, y, 25, 0, Math.PI * 2, true);
+                nodes.push({x: x, y: y});
                 x += 83;
-                // y += 50;
-                ctx.stroke();
             }
 
+            drawLines(ctx, nodes);
+            drawCircles(ctx, nodes, root);
+        }
+
+        function drawLines(ctx, nodes) {
+            let connectingNode = 1;
+            for (var i = 0; connectingNode < nodes.length; i++) {
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x, nodes[i].y);
+                ctx.lineTo(nodes[connectingNode].x, nodes[connectingNode].y);
+                ctx.stroke();
+
+                connectingNode++;
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x, nodes[i].y);
+                ctx.lineTo(nodes[connectingNode].x, nodes[connectingNode].y);
+                ctx.stroke();
+
+                connectingNode++;
+            }
+        }
+
+        function drawCircles(ctx, nodes, root) {
+            for (var i = 0; i < nodes.length; i++) {
+                ctx.beginPath();
+                ctx.arc(nodes[i].x, nodes[i].y, 25, 0, Math.PI * 2, true);
+                ctx.stroke();
+                ctx.fillStyle = '#ECECEC';
+                // ctx.fillStyle = '#FFFAE6';
+                // ctx.fillStyle = '#D6EBF2';
+                // ctx.fillStyle = '#ADD8E6';
+                ctx.fill();
+
+                ctx.fillStyle = 'black';
+                ctx.fillText(root[i], nodes[i].x, nodes[i].y);
+            }
         }
 
         drawBinaryTree();
