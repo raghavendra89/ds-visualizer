@@ -82,6 +82,7 @@
 }
 .fs-2 {
     font-size: 1.75rem;
+    line-height: 1.25;
 }
 .fs-4 {
     font-size: 1.25rem;
@@ -139,6 +140,10 @@ header .container {
 }
 .container {
     max-width: 768px;
+    padding: 0 25px;
+}
+figure img {
+    max-width: 100%;
 }
 .main-img {
     border-radius: 10px;
@@ -213,4 +218,12 @@ figure.highlight {
     max-height: 500px;
     overflow: auto;
     width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 8px 25px;
+    }
 }
