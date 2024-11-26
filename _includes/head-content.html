@@ -1,6 +1,6 @@
     <title>
-        {% if layout.for == 'stacks' %}
-        Stacks - 
+        {% if layout.for %}
+        {{ layout.for }} - 
         {% endif %}
         {{ page.title }}
     </title>

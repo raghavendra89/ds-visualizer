@@ -1,7 +1,3 @@
----
-for: Stacks
----
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,24 +50,16 @@ for: Stacks
 
                                 <div class="d-flex">
                                     <div class="tab-panel code-tab-panel active" id="solution.js">
-                                        {% highlight javascript %}
-{% include_relative assets/js/{{ page.slug }}.js %}
-                                        {% endhighlight %}
+
                                     </div>
                                     <div class="tab-panel code-tab-panel" id="stack.js">
-                                        {% highlight javascript %}
-{% include_relative assets/js/stack.js %}
-                                        {% endhighlight %}
+
                                     </div>
                                     <div class="tab-panel code-tab-panel" id="stack-displayer.js">
-                                        {% highlight javascript %}
-{% include_relative assets/js/stack-displayer.js %}
-                                        {% endhighlight %}
+
                                     </div>
                                     <div class="tab-panel code-tab-panel" id="animator-module.js">
-                                        {% highlight javascript %}
-{% include_relative assets/js/animator-module.js %}
-                                        {% endhighlight %}
+
                                     </div>
                                 </div>
                             </div>
@@ -84,39 +72,10 @@ for: Stacks
 
     {% include footer.html %}
 
-    <template id="stack-template">
-        <div class="stack-wrapper">
-            <div class="stack-ops">
-                <strong>
-                    <span class="text-underline">&nbsp;PUSH&nbsp;</span>
-                </strong>
-                <span></span>
-                <strong>
-                    <small>Last</small> <br>
-                    <span class="text-underline">&nbsp;POP&nbsp;</span>
-                </strong>
-            </div>
-            <div class="stack-ops-values">
-                <div class="stack-item hidden push-element">5</div>
-                <span></span>
-                <div class="stack-item pop-element">&nbsp;</div>
-            </div>
-            <div class="stack-container">
-                <span></span>
-                <div class="stack"></div>
-                <span></span>
-            </div>
-            <div class="stack-description">
-                <h4></h4>
-                <p></p>
-            </div>
-        </div>
-    </template>
-
     <script src="/stacks/assets/js/stack-displayer.js"></script>
     <script src="/stacks/assets/js/animator-module.js"></script>
     <script src="/stacks/assets/js/stack.js"></script>
-    <script src="/stacks/assets/js/{{ page.slug }}.js"></script>
+    <!-- <script src="/stacks/assets/js/{{ page.slug }}.js"></script> -->
     <script>
         let tabBtns = document.getElementsByClassName('tab-btn');
         let solutionTabs = document.getElementsByClassName('solution-tab-panel');
@@ -206,7 +165,7 @@ for: Stacks
                 document.getElementById('stack-visualizer')
                         .innerHTML = '';
                 // Call the solution function with the inputs
-                stackSolution(args);
+                // stackSolution(args);
             }, 2000);
         });
 
