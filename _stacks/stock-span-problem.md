@@ -1,6 +1,9 @@
 ---
 layout: visualizer
 title: Stock Span Problem
+inputs:
+  - type: array
+    label: Please enter the input array
 ---
 
 #### Problem:
@@ -9,11 +12,11 @@ Given a series of daily price quotes for a stock over N days, calculate the span
 
 Example: 
 
-**Input Array (Stock price):** [150, 120, 140, 150, 140, 145, 150]
+**Input Array (Stock price):** [150, 120, 140, 160, 140, 145, 150]
 
-**Output (Stock Span):** [1, 1, 2, 1, 1, 2, 4]
+**Output (Stock Span):** [1, 1, 2, 4, 1, 2, 3]
 
-For the first value, 150, there are no previous values, so the stock span is 1. For the value 120, the previous value is 150, which is greater than 120, so the stock span is 1. However, for 140, the previous value 120 is smaller, and the stock span extends to 2, as 140 is greater than 120. Similarly, for 150 at the end of the array, there are 4 values (including the current value itself) that are less than or equal to 150, so the stock span is 4.
+For the first value, 150, there are no previous values, so the stock span is 1. For the value 120, the previous value is 150, which is greater than 120, so the stock span is 1. However, for 140, the previous value 120 is smaller, and the stock span extends to 2, as 140 is greater than 120. Similarly, for 150 at the end of the array, there are 3 values (including the current value itself) that are less than or equal to 150, so the stock span is 3.
 
 #### Algorithm:
 

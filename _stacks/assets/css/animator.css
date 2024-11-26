@@ -1,6 +1,6 @@
 :root {
-/*    --stack-item-color: #8CC8FA;*/
     --stack-item-color: #B4F0FA;
+    --highlight-stack-item-color: #8CC8FA;
     --pop-item-color: #F5EDCB;
 }
 
