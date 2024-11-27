@@ -10,7 +10,7 @@ class TreeNode {
     }
 
     get data() {
-        animatorModule.highlightNode(this.nodePoint, this.#data);
+        // animatorModule.highlightNode(this.nodePoint, this.#data);
 
         return this.#data;
     }
@@ -88,10 +88,74 @@ function drawBinaryTree(nodes) {
         x += 83;
     }
 
-    drawLines(nodePoints);
-    drawCircles(nodePoints, nodes);
+    let root = buildTree(nodes, nodePoints, 0, nodes.length);
 
-    return buildTree(nodes, nodePoints, 0, nodes.length);
+    traverseToDraw(root);
+
+    return root;
+}
+
+// Do the inorder traversal to draw the tree on the canvas
+function traverseToDraw(root) {
+    if (root !== null) {
+        drawTree(root, root.left);
+        traverseToDraw(root.left);
+
+        drawTree(root, root.right);
+        traverseToDraw(root.right);
+    }
+}
+
+function drawTree(node, child) {
+    if (node !== null && child !== null) {
+        drawCircle(node);
+        drawCircle(child);
+
+        drawLine(node.nodePoint, child.nodePoint);
+    }
+}
+
+function drawCircle(node) {
+    let nodePoint = node.nodePoint;
+
+    ctx.beginPath();
+    ctx.arc(nodePoint.x, nodePoint.y, 25, 0, Math.PI * 2, true);
+    ctx.stroke();
+    ctx.fillStyle = '#ECECEC';
+    // ctx.fillStyle = '#FFFAE6';
+    // ctx.fillStyle = '#D6EBF2';
+    // ctx.fillStyle = '#ADD8E6';
+    ctx.fill();
+
+    ctx.fillStyle = 'black';
+    ctx.fillText(node.data, nodePoint.x, nodePoint.y);
+}
+
+function drawLine(c1, c2) {
+    let p1 = getPointOnCircle(c1, c2);
+    let p2 = getPointOnCircle(c2, c1);
+
+    ctx.beginPath();
+    ctx.moveTo(p1.x, p1.y);
+    ctx.lineTo(p2.x, p2.y);
+    ctx.stroke();
+}
+
+function getPointOnCircle(c1, c2) {
+    let vector = {x: c2.x - c1.x, y: c2.y - c1.y}
+
+    // Determine length b/w the centers
+    let length = Math.sqrt(Math.pow(vector.x,2) + Math.pow(vector.y,2));
+
+    let radius = 25;
+
+    // Determine the ratio between the radius and the full hypotenuse.
+    let ratio = radius / length;
+
+    let newX = c1.x + vector.x * ratio;
+    let newY = c1.y + vector.y * ratio;
+
+    return {x: newX, y: newY};
 }
 
 function drawLines(nodePoints) {
