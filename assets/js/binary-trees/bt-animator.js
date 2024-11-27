@@ -21,10 +21,23 @@ let animatorModule = (function() {
         });
     }
 
+    function highlightLineAnimate(animation) {
+        return new Promise((resolve) => {
+            drawLine(animation.nodePoint1, animation.nodePoint2, '#FF3D00');
+
+            setTimeout(() => {
+                resolve('Node highlighted!');
+            }, animationSpeed);
+        });
+    }
+
     function runSingleAnimation(animation) {
         switch (animation.type) {
             case 'highlight-node':
                 return highlightNodeAnimate(animation);
+                break;
+            case 'highlight-line':
+                return highlightLineAnimate(animation);
                 break;
         }
     }
@@ -56,7 +69,20 @@ let animatorModule = (function() {
         runAnimations();
     }
 
+    let highlightLine = function (nodePoint1, nodePoint2) {
+        let animation = {
+            type: 'highlight-line',
+            nodePoint1: nodePoint1,
+            nodePoint2: nodePoint2
+        }
+
+        animations.push(animation);
+
+        runAnimations();
+    }
+
     return {
-        highlightNode: highlightNode
+        highlightNode: highlightNode,
+        highlightLine: highlightLine
     }
 })();

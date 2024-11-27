@@ -10,8 +10,13 @@ class TreeNode {
     }
 
     get data() {
-        // animatorModule.highlightNode(this.nodePoint, this.#data);
+        animatorModule.highlightNode(this.nodePoint, this.#data);
 
+        return this.#data;
+    }
+
+    // Read the node data without highlighting or animation
+    dryRead() {
         return this.#data;
     }
 }
@@ -64,25 +69,25 @@ function drawBinaryTree(nodes) {
     // }
 
     let x = 340;
-    let y = 100;
+    let y = 50;
     nodePoints.push({x: x, y: y});
 
     x = 180;
-    y = 200;
+    y = 150;
     for (var i = 0; i < 2; i++) {
         nodePoints.push({x: x, y: y});
         x += 334;
     }
 
     x = 100;
-    y = 300;
+    y = 250;
     for (var i = 0; i < 4; i++) {
         nodePoints.push({x: x, y: y});
         x += 166.67;
     }
 
     x = 60;
-    y = 400;
+    y = 350;
     for (var i = 0; i < 8; i++) {
         nodePoints.push({x: x, y: y});
         x += 83;
@@ -128,17 +133,19 @@ function drawCircle(node) {
     ctx.fill();
 
     ctx.fillStyle = 'black';
-    ctx.fillText(node.data, nodePoint.x, nodePoint.y);
+    ctx.fillText(node.dryRead(), nodePoint.x, nodePoint.y);
 }
 
-function drawLine(c1, c2) {
+function drawLine(c1, c2, strokeColor = 'black') {
     let p1 = getPointOnCircle(c1, c2);
     let p2 = getPointOnCircle(c2, c1);
 
     ctx.beginPath();
     ctx.moveTo(p1.x, p1.y);
     ctx.lineTo(p2.x, p2.y);
+    ctx.strokeStyle = strokeColor;
     ctx.stroke();
+    ctx.strokeStyle = 'black';
 }
 
 function getPointOnCircle(c1, c2) {
