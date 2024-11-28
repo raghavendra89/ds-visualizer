@@ -2,28 +2,33 @@ function binaryTreeSolution(root)
 {
     let sum = 0;
     let nodes = [];
-    let maxSum = 0
-    maxSum = findMaximumSumPath(root, sum, maxSum);
+    let maxSum = 0;
+    [maxSum, nodes] = findMaximumSumPath(root, sum, maxSum, [], nodes);
 
     // Display the max depth
     animatorModule.displayOutput(maxSum, 'Max Sum: ' + maxSum);
 }
 
-function findMaximumSumPath(root, sum, maxSum) {
-    if (root === null) return maxSum;
+function findMaximumSumPath(root, sum, maxSum, currentPathNodes, nodes) {
+    if (root === null) return [maxSum, nodes];
 
     sum += root.data;
+    currentPathNodes.push(root);
     if (root.left === null && root.right === null) {
         if (sum > maxSum) {
             maxSum = sum;
-            return maxSum;
+            nodes = [...currentPathNodes];
+            currentPathNodes.pop();
+            return [maxSum, nodes];
         } else {
-            return maxSum;
+            currentPathNodes.pop();
+            return [maxSum, nodes];
         }
     }
 
-    maxSum = findMaximumSumPath(root.left, sum, maxSum);
-    maxSum = findMaximumSumPath(root.right, sum, maxSum);
+    [maxSum, nodes] = findMaximumSumPath(root.left, sum, maxSum, currentPathNodes, nodes);
+    [maxSum, nodes] = findMaximumSumPath(root.right, sum, maxSum, currentPathNodes, nodes);
+    currentPathNodes.pop();
 
-    return maxSum;
+    return [maxSum, nodes];
 }
