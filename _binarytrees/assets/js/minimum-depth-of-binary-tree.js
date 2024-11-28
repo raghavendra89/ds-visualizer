@@ -24,4 +24,4 @@ function findMinDepth(root) {
 const nodes = [1, 2, 3, 4, 5, null, null, null, null, 10];
 const root = buildTree(nodes);
 
-findMinDepth(root); // 4
+findMinDepth(root); // 2
