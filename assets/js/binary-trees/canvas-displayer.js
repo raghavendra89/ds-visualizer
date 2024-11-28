@@ -1,18 +1,55 @@
+// Animator switch: Controls whether to animate access to the tree
+class AnimationSwitch {
+    static animate = false;
+}
+
 class TreeNode {
     #data = null;
+    #left = null;
+    #right = null;
 
     constructor(data, nodePoint) {
         this.#data = data;
-        this.left = null;
-        this.right = null;
+        this.#left = null;
+        this.#right = null;
 
         this.nodePoint = nodePoint;
     }
 
+    set data(data) {
+        this.#data = data;
+    }
+
+    set left(left) {
+        this.#left = left;
+    }
+
+    set right(right) {
+        this.#right = right;
+    }
+
     get data() {
-        animatorModule.highlightNode(this.nodePoint, this.#data);
+        if (AnimationSwitch.animate) {
+            animatorModule.highlightNode(this.nodePoint, this.#data);
+        }
 
         return this.#data;
+    }
+
+    get left() {
+        if (AnimationSwitch.animate && this.#left !== null) {
+            animatorModule.highlightLine(this.nodePoint, this.#left.nodePoint);
+        }
+
+        return this.#left;
+    }
+
+    get right() {
+        if (AnimationSwitch.animate && this.#right !== null) {
+            animatorModule.highlightLine(this.nodePoint, this.#right.nodePoint);
+        }
+
+        return this.#right;
     }
 
     // Read the node data without highlighting or animation
@@ -73,6 +110,9 @@ function drawBinaryTree(nodes) {
 
     traverseToDraw(root);
 
+    // Enable animations in the solution functions
+    AnimationSwitch.animate = true;
+
     return root;
 }
 
@@ -109,7 +149,7 @@ function drawCircle(node) {
     ctx.fill();
 
     ctx.fillStyle = 'black';
-    ctx.fillText(node.dryRead(), nodePoint.x, nodePoint.y);
+    ctx.fillText(node.data, nodePoint.x, nodePoint.y);
 }
 
 function drawLine(c1, c2, strokeColor = 'black') {

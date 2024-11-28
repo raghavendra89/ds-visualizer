@@ -27,7 +27,7 @@ let animatorModule = (function() {
 
             setTimeout(() => {
                 resolve('Node highlighted!');
-            }, 500);
+            }, 300);
         });
     }
 

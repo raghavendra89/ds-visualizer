@@ -19,14 +19,11 @@ function levelOrderTraversal(root) {
 
             // Enqueue the left child
             if (node.left) {
-                animatorModule.highlightLine(node.nodePoint, node.left.nodePoint);
-
                 queue.push(node.left);
             }
 
             // Enqueue the right child
             if (node.right) {
-                animatorModule.highlightLine(node.nodePoint, node.right.nodePoint);
                 queue.push(node.right);
             }
         }
