@@ -108,9 +108,15 @@ let animatorModule = (function() {
         runAnimations();
     }
 
+    let clearAnimations = function () {
+        animations = [];
+        animationsRunning = false;
+    }
+
     return {
         highlightNode: highlightNode,
         highlightLine: highlightLine,
-        displayOutput: displayOutput
+        displayOutput: displayOutput,
+        clearAnimations: clearAnimations
     }
 })();

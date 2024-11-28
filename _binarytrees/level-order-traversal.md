@@ -1,6 +1,8 @@
 ---
 layout: bt-visualizer
 title: Binary Trees - Level Order Traversal
+default_nodes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+no_output: true
 ---
 
 > Level order traversal is Breadth-first-search(BFS) algorithm, where the nodes at the same level are processed before moving to the next level.

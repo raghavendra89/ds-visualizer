@@ -1,0 +1,58 @@
+<div class="solution-result-display mb-4 p-2">
+    <h4 class="m-0 mb-2">Input:</h4>
+
+    <div class="mb-4">
+        <label>Please enter the Tree nodes:</label>
+        <input type="text" class="sv-input sv-input-array" name="" value="{{ page.default_nodes }}">
+        <div class="sv-input-feedback d-none">The tree nodes should only contain the numbers or `null` followed by comma</div>
+    </div>
+
+    {% for input in page.inputs %}
+        {% if input.type == 'string' %}
+            <div class="mb-4">
+                <label>{{ input.label }}</label>
+                <input type="text" class="sv-input" name="" validation="{{ input.regex }}">
+                <div class="sv-input-feedback d-none">{{ input.feedback }}</div>
+            </div>
+        {% elsif input.type == 'number' %}
+            <div class="mb-4">
+                <label>{{ input.label }}</label>
+                <input type="number" class="sv-input" name="">
+                <div class="sv-input-feedback d-none">{{ input.feedback }}</div>
+            </div>
+        {% else %}
+            <div class="mb-4">
+                <label>{{ input.label }}</label>
+                <input type="text" class="sv-input sv-input-array" name="">
+                <div class="sv-input-feedback d-none">{{ input.feedback }}</div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    {% if page.noinputtext %}
+    <div class="mb-4">
+        <pre>{{ page.noinputtext }}</pre>
+    </div>
+    {% endif %}
+
+    <div class="mb-2 text-center">
+        <button class="btn btn-primary" id="btn-show-visualization">Show Visualization</button>
+    </div>
+
+    {% if page.no_output %}
+    {% else %}
+    <h4 class="m-0 mb-2">Output:</h4>
+
+    <div class="mb-2 p-2" id="final-output">
+        &nbsp;
+    </div>
+    {% endif %}
+</div>
+
+<div class="sv-comment text-center p-2 mb-2"></div>
+
+<div id="bt-visualizer">
+    <canvas width="700px" height="410px">
+        Binary Tree Visualization
+    </canvas>
+</div>

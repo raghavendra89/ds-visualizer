@@ -37,29 +37,25 @@
 
                         <div>
                             <div class="tab-panel solution-tab-panel p-2 active" id="solution-result">
-                                {% include stack-result-area.html %}
+                                {% include bt-result-area.html %}
                             </div>
 
                             <div class="tab-panel solution-tab-panel p-2" id="solution-code">
                                 <div class="d-flex gap-3 code-tabs">
                                     <div class="tab-btn code-tab p-2 active" data-target="solution.js">solution.js</div>
-                                    <div class="tab-btn code-tab p-2" data-target="stack.js">stack.js</div>
-                                    <div class="tab-btn code-tab p-2" data-target="stack-displayer.js">stack-displayer.js</div>
-                                    <div class="tab-btn code-tab p-2" data-target="animator-module.js">animator-module.js</div>
+                                    <div class="tab-btn code-tab p-2" data-target="binary-tree.js">binary-tree.js</div>
                                 </div>
 
                                 <div class="d-flex">
                                     <div class="tab-panel code-tab-panel active" id="solution.js">
-
+                                        {% highlight javascript %}
+{% include_relative assets/js/{{ page.slug }}.js %}
+                                        {% endhighlight %}
                                     </div>
-                                    <div class="tab-panel code-tab-panel" id="stack.js">
-
-                                    </div>
-                                    <div class="tab-panel code-tab-panel" id="stack-displayer.js">
-
-                                    </div>
-                                    <div class="tab-panel code-tab-panel" id="animator-module.js">
-
+                                    <div class="tab-panel code-tab-panel" id="binary-tree.js">
+                                        {% highlight javascript %}
+{% include_relative assets/js/binary-tree.js %}
+                                        {% endhighlight %}
                                     </div>
                                 </div>
                             </div>
@@ -72,10 +68,17 @@
 
     {% include footer.html %}
 
-    <script src="/stacks/assets/js/stack-displayer.js"></script>
-    <script src="/stacks/assets/js/animator-module.js"></script>
-    <script src="/stacks/assets/js/stack.js"></script>
-    <!-- <script src="/stacks/assets/js/{{ page.slug }}.js"></script> -->
+    <script src="/assets/js/binary-trees/canvas-displayer.js"></script>
+    <script src="/assets/js/binary-trees/bt-animator.js"></script>
+    <script src="/assets/js/binary-trees/{{ page.slug }}.js"></script>
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.font = "bold 20px sans-serif";
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.lineWidth = 2;
+    </script>
     <script>
         let tabBtns = document.getElementsByClassName('tab-btn');
         let solutionTabs = document.getElementsByClassName('solution-tab-panel');
@@ -110,8 +113,8 @@
             });
         }
 
-
         let showVisualizationBtn = document.getElementById('btn-show-visualization');
+        let outputElement = document.getElementById('final-output');
         showVisualizationBtn.addEventListener('click', () => {
             // Validate the inputs
             let inputs = document.getElementsByClassName('sv-input');
@@ -125,14 +128,19 @@
                     // Remove last comma
                     let arrayValue = input.value.replace(/,\s*$/, "");
 
-                    if (! /^\s*\d+\s*(,\s*\d+\s*)*$/.test(arrayValue)) {
+                    if (! /^\s*(\d|null)+\s*(,\s*(\d|null)+\s*)*$/.test(arrayValue)) {
                         // feedbackElement.innerText = 'Please enter the array elements followed by a comma';
-                        // feedbackElement.classList.remove('d-none');
+                        feedbackElement.classList.remove('d-none');
+                        return;
                     } else {
                         feedbackElement.classList.add('d-none');
                         let array = arrayValue.split(',');
                         array.forEach((value, index) => {
-                            array[index] = parseInt(value.trim());
+                            if (value.trim() == 'null') {
+                                array[index] = null;
+                            } else {
+                                array[index] = parseInt(value.trim());
+                            }
                         });
 
                         args.push(array);
@@ -151,22 +159,23 @@
                 }
             }
 
+            // Clear the previous screen
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             animatorModule.clearAnimations();
 
-            document.getElementById('final-output')
-                    .innerHTML = '&nbsp;&nbsp;&nbsp;';
-            document.getElementById('stack-visualizer')
-                    .innerHTML = '<div>Loading...</div>';
+            if (outputElement) {
+                outputElement.innerHTML = '&nbsp;';
+            }
             document.getElementsByClassName('sv-comment')
                     .innerHTML = '';
 
-            // Add a delay, so previous animations are celared
+            // const nodes = [1, 2, 3, 4, null, null, null, 8, 9];
+            const nodes = args[0];
+            const root = drawBinaryTree(nodes);
             setTimeout(() => {
-                document.getElementById('stack-visualizer')
-                        .innerHTML = '';
-                // Call the solution function with the inputs
-                // stackSolution(args);
-            }, 2000);
+                // Add a slight delay before starting the animations
+                binaryTreeSolution(root);
+            }, 500);
         });
 
         function highlightCharacter(string, index) {
