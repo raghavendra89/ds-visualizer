@@ -1,7 +1,7 @@
 ---
 layout: bt-visualizer
 title: Find the maximun depth or height of a binary tree
-default_nodes: 
+default_nodes: 1, 2, 3, 4, null, null, null, 8, 9
 ---
 
 #### Problem:
