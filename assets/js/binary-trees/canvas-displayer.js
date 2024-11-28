@@ -40,38 +40,12 @@ function buildTree(nodes, nodePoints, index, size) {
 function drawBinaryTree(nodes) {
     let nodePoints = [];
 
-    // const levels = [];
-    // var i = 0;
-    // while (nodes.length) {
-    //     levels.push(
-    //         nodes.splice(0, Math.pow(2, i))
-    //     );
-    //     i++;
-    // }
-
-    // let subLevels;
-    // let x;
-    // let y;
-    // let gap;
-    // for (var i = 0; i < levels.length; i++) {
-    //     subLevels = levels[i];
-
-    //     gap = 700 / (Math.pow(2, i) + 1);
-    //     x = gap;
-    //     y = 100 + (100 * i);
-    //     for (var j = 0; j < subLevels.length; j++) {
-    //         ctx.beginPath();
-    //         ctx.arc(x, y, 25, 0, Math.PI * 2, true);
-    //         ctx.stroke();
-
-    //         x += gap;
-    //     }
-    // }
-
+    // Circle center coordinates for the top node
     let x = 340;
     let y = 50;
     nodePoints.push({x: x, y: y});
 
+    // Circle center coordinates for the 2nd level nodes
     x = 180;
     y = 150;
     for (var i = 0; i < 2; i++) {
@@ -79,6 +53,7 @@ function drawBinaryTree(nodes) {
         x += 334;
     }
 
+    // Circle center coordinates for the 3rd level nodes
     x = 100;
     y = 250;
     for (var i = 0; i < 4; i++) {
@@ -86,6 +61,7 @@ function drawBinaryTree(nodes) {
         x += 166.67;
     }
 
+    // Circle center coordinates for the 4th level nodes
     x = 60;
     y = 350;
     for (var i = 0; i < 8; i++) {
@@ -163,38 +139,4 @@ function getPointOnCircle(c1, c2) {
     let newY = c1.y + vector.y * ratio;
 
     return {x: newX, y: newY};
-}
-
-function drawLines(nodePoints) {
-    let connectingNode = 1;
-    for (var i = 0; connectingNode < nodePoints.length; i++) {
-        ctx.beginPath();
-        ctx.moveTo(nodePoints[i].x, nodePoints[i].y);
-        ctx.lineTo(nodePoints[connectingNode].x, nodePoints[connectingNode].y);
-        ctx.stroke();
-
-        connectingNode++;
-        ctx.beginPath();
-        ctx.moveTo(nodePoints[i].x, nodePoints[i].y);
-        ctx.lineTo(nodePoints[connectingNode].x, nodePoints[connectingNode].y);
-        ctx.stroke();
-
-        connectingNode++;
-    }
-}
-
-function drawCircles(nodePoints, nodes) {
-    for (var i = 0; i < nodePoints.length; i++) {
-        ctx.beginPath();
-        ctx.arc(nodePoints[i].x, nodePoints[i].y, 25, 0, Math.PI * 2, true);
-        ctx.stroke();
-        ctx.fillStyle = '#ECECEC';
-        // ctx.fillStyle = '#FFFAE6';
-        // ctx.fillStyle = '#D6EBF2';
-        // ctx.fillStyle = '#ADD8E6';
-        ctx.fill();
-
-        ctx.fillStyle = 'black';
-        ctx.fillText(nodes[i], nodePoints[i].x, nodePoints[i].y);
-    }
 }
