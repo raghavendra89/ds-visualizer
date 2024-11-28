@@ -31,6 +31,19 @@ let animatorModule = (function() {
         });
     }
 
+    function displayOutputAnimate(animation) {
+        return new Promise((resolve) => {
+            let outputELement = document.getElementById('final-output');
+            outputELement.innerHTML = animation.value;
+
+            ctx.textAlign = 'left';
+            ctx.fillText(animation.text, 20, 30);
+            ctx.textAlign = 'center';
+
+            resolve('Output displayed!');
+        })
+    }
+
     function runSingleAnimation(animation) {
         switch (animation.type) {
             case 'highlight-node':
@@ -38,6 +51,9 @@ let animatorModule = (function() {
                 break;
             case 'highlight-line':
                 return highlightLineAnimate(animation);
+                break;
+            case 'display-output':
+                return displayOutputAnimate(animation);
                 break;
         }
     }
@@ -81,8 +97,20 @@ let animatorModule = (function() {
         runAnimations();
     }
 
+    let displayOutput = function (output, outputText) {
+        let animationObject = {
+            type: 'display-output',
+            value: output,
+            text: outputText
+        };
+
+        animations.push(animationObject);
+        runAnimations();
+    }
+
     return {
         highlightNode: highlightNode,
-        highlightLine: highlightLine
+        highlightLine: highlightLine,
+        displayOutput: displayOutput
     }
 })();
