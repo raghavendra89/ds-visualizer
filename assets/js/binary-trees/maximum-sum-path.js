@@ -7,6 +7,7 @@ function binaryTreeSolution(root)
 
     // Display the max depth
     animatorModule.displayOutput(maxSum, 'Max Sum: ' + maxSum);
+    animatorModule.highlightAnswerNodes(nodes);
 }
 
 function findMaximumSumPath(root, sum, maxSum, currentPathNodes, nodes) {
