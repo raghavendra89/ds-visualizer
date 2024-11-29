@@ -1,6 +1,8 @@
 ---
 layout: bt-visualizer
 title: Binary Trees - Postorder Traversal
+default_nodes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+no_output: true
 ---
 
 > Postorder traversal technique follows the **Left -> Right -> Root** order.

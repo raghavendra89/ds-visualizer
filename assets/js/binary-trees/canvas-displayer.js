@@ -75,6 +75,8 @@ function buildTree(nodes, nodePoints, index, size) {
 }
 
 function drawBinaryTree(nodes) {
+    AnimationSwitch.animate = false;
+
     let nodePoints = [];
 
     // Circle center coordinates for the top node
