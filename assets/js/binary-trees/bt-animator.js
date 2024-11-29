@@ -1,7 +1,7 @@
 let animatorModule = (function() {
     let animations = [];
     let animationsRunning = false;
-    let animationSpeed = 750;
+    let animationSpeed = 500;
 
     function highlightNodeAnimate(animation) {
         return new Promise((resolve) => {
@@ -21,13 +21,37 @@ let animatorModule = (function() {
         });
     }
 
+    function highlightAnswerNodesAnimate(animation) {
+        return new Promise((resolve) => {
+            AnimationSwitch.animate = false;
+
+            for (let i = 0; i < animation.nodes.length; i++) {
+                let node = animation.nodes[i];
+                ctx.beginPath();
+                ctx.arc(node.nodePoint.x, node.nodePoint.y, 25, 0, Math.PI * 2, true);
+                ctx.stroke();
+                ctx.fillStyle = '#F06292';
+                ctx.fill();
+
+                ctx.fillStyle = 'black';
+                ctx.fillText(node.data, node.nodePoint.x, node.nodePoint.y);
+            }
+
+            AnimationSwitch.animate = true;
+
+            setTimeout(() => {
+                resolve('Node highlighted!');
+            }, animationSpeed);
+        });
+    }
+
     function highlightLineAnimate(animation) {
         return new Promise((resolve) => {
             drawLine(animation.nodePoint1, animation.nodePoint2, '#FF3D00');
 
             setTimeout(() => {
                 resolve('Node highlighted!');
-            }, 300);
+            }, 250);
         });
     }
 
@@ -48,6 +72,9 @@ let animatorModule = (function() {
         switch (animation.type) {
             case 'highlight-node':
                 return highlightNodeAnimate(animation);
+                break;
+            case 'highlight-answer-nodes':
+                return highlightAnswerNodesAnimate(animation);
                 break;
             case 'highlight-line':
                 return highlightLineAnimate(animation);
@@ -85,6 +112,17 @@ let animatorModule = (function() {
         runAnimations();
     }
 
+    let highlightAnswerNodes = function (nodes) {
+        let animation = {
+            type: 'highlight-answer-nodes',
+            nodes: nodes
+        }
+
+        animations.push(animation);
+
+        runAnimations();
+    }
+
     let highlightLine = function (nodePoint1, nodePoint2) {
         let animation = {
             type: 'highlight-line',
@@ -110,6 +148,7 @@ let animatorModule = (function() {
 
     return {
         highlightNode: highlightNode,
+        highlightAnswerNodes: highlightAnswerNodes,
         highlightLine: highlightLine,
         displayOutput: displayOutput
     }
