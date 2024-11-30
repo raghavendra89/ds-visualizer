@@ -2,29 +2,77 @@
 layout: datastructure
 permalink: /binarytrees/
 title: Binary Trees - Learn by visualizing
-subtitle: Binary Trees are simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+subtitle: A Binary Tree is a fundamental concept in computer science used in various algorithms and data structures, such as binary search trees, heaps, and syntax trees.
 ---
 
 <section>
     <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        A binary tree is a hierarchical data structure in which each node has at most two children, commonly referred to as the left child and the right child. The topmost node in a binary tree is called the root, while the bottom-most nodes, which have no child nodes, are known as leaf nodes (or simply leaves).
     </p>
 
+    <h4>Key Features of a Binary Tree:</h4>
+    <ol>
+        <li>
+            <strong>Nodes:</strong> Each node in a Binary Tree has three parts: Data and references (or pointers) to its left and right children.
+        </li>
+        <li>
+            <strong>Root:</strong> The top node in the tree. It is the starting point of the tree structure.
+        </li>
+        <li>
+            <strong>Leaf Nodes:</strong> Nodes that do not have any children (i.e., both their left and right pointers are null).
+        </li>
+        <li>
+            <strong>Internal Nodes:</strong> Nodes that have at least one child (left or right).
+        </li>
+        <li>
+            <strong>Height:</strong> The height of a binary tree is the length of the longest path from the root node to a leaf.
+        </li>
+    </ol>
 
-    <h4>Where does it come from?</h4>
+    <figure>Image goes here...</figure>
+
+    <h4>Binary Tree Traversal:</h4>
     <p>
-        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+        Binary Tree Traversal involves visiting all the nodes of the binary tree in a specific order. Tree traversal algorithms are generally classified into two main categories: Depth-First Search (DFS) and Breadth-First Search (BFS).
+        <ul>
+            <li>
+                In Depth-First Search (DFS), we aim to visit the nodes as deep as possible, starting from the root. DFS has three main traversal techniques:
+                <ol>
+                    <li>Inorder: Visit the left subtree, then the current node, and then the right subtree.</li>
+                    <li>Preorder: Visit the current node, then the left subtree, and finally the right subtree.</li>
+                    <li>Postorder: Visit the left subtree, then the right subtree, and finally the current node.</li>
+                </ol>
+            </li>
+            <li>
+                In Breadth-First Search (BFS), we prioritize visiting the node closest to the root before moving on to nodes further away. This approach typically uses a queue to explore each level of the tree from top to bottom.
+            </li>
+        </ul>
     </p>
+    <p>
+        In the following problems, you will see visualizations demonstrating how these traversal algorithms work in practice.
+    </p>
+
+
+    <h4>Applications of Binary Trees:</h4>
+    <ul>
+        <li>
+            <strong>Searching:</strong> Efficient searching (in structures like Binary Search Trees).
+        </li>
+        <li>
+            <strong>Sorting:</strong> Binary trees are used in some sorting algorithms (like heaps).
+        </li>
+        <li>
+            <strong>Expression Parsing:</strong> Expression trees (used in compilers) represent mathematical expressions.
+        </li>
+        <li>
+            <strong>Hierarchical Data Representation:</strong> File systems or organization charts can be represented using binary trees.
+        </li>
+    </ul>
 
     <p>
-        Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+        Binary trees are fundamental in computer science because of their versatility in various applications like searching, balancing, and tree traversal.
     </p>
 
-
-    <h4>Where does it come from?</h4>
-    <p>
-        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
-    </p>
 </section>
 
 <section>
