@@ -79,6 +79,23 @@ for: Stacks
                     </div>
                 </section>
             </article>
+
+            <div class="d-flex gap-3 prev-next-links">
+                {% if page.previous %}
+                    <a rel="prev" href="{{ page.previous.url }}">
+                        &larr; Previous <br>
+                        {{ page.previous.title }}
+                    </a>
+                {% else %}
+                    <a>&nbsp;</a>
+                {% endif %}
+                {% if page.next %}
+                    <a class="text-right" rel="next" href="{{ page.next.url }}">
+                        Next &rarr; <br>
+                        {{ page.next.title }}
+                    </a>
+                {% endif %}
+            </div>
         </div>
     </main>
 
