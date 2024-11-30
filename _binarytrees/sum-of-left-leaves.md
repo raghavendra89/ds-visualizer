@@ -10,9 +10,12 @@ Given the root of a binary tree, return the sum of all left leaves. Left leaf is
 
 #### Algorithm:
 
-1. Perform an inorder traversal of the binary tree.
-2. During the traversal, use a flag to identify left nodes. Add a left node to the sum if it has no child nodes (i.e., it is a leaf node).
-3. Return the total sum.
+1. Traverse the binary tree and perform the following operations;
+    1. During the traversal, use a flag `isLeftNode` to identify left nodes.
+    2. Add the value of a left child node to the sum if it is a leaf node (i.e., it has no child nodes).
+3. After completing the traversal, return the total sum of all leaf left nodes.
+
+This algorithm traverses the binary tree, checking each left child node. If the left child is a leaf (no children), its value is added to the total sum. The sum of all such leaf left nodes is then returned.
 
 #### Solution & Visualize:
 The animation/visualization below demonstrates how the algorithm works.

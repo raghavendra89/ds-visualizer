@@ -10,10 +10,10 @@ Given a binary tree, find the minimun depth of the tree. The minimum depth is th
 
 #### Algorithm:
 
-1. Traverse the binary tree and perform the below operations
-    1. If it is a leaf node, then return depth as 1.
-    2. If not leaf node and one of the subtree is null, then traverse the other tree and find the depth.
-    3. If both subtrees are present, then recur and find the minimum of two depths.
+1. Traverse the binary tree and perform the following operations
+    1. If the node is a leaf (both left and right children are null), return a depth as 1.
+    2. If the node is not a leaf and one of the subtrees is null, recursively traverse the other subtree to find its minimum depth.
+    3. If both subtrees are present, recursively find the minimum depth between the two subtrees.
 
 #### Solution & Visualize:
 The animation/visualization below demonstrates how the algorithm works.

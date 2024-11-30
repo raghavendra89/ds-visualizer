@@ -10,11 +10,13 @@ Given a binary tree, find the maximun depth or height of a binary tree. The heig
 
 #### Algorithm:
 
-1. If the tree is empty return 0.
-2. Traverse the left and right subtrees and recursively calculate the height.
-    1. Calcualte the left subtree height recursively.
-    2. Calcualte the right subtree height recursively.
-3. Determine the maximum of left and right subtree heights and add `1` to it for the current node.
+1. If the tree is empty, return `0` (indicating no height).
+2. Traverse the left and right subtrees, recursively calculating the height of each.
+    1. Recursively calculate the height of the left subtree.
+    2. Recursively calculate the height of the right subtree.
+3. Determine the maximum height between the left and right subtrees, and add 1 to account for the current node’s height.
+
+This approach calculates the height by recursively determining the heights of the left and right subtrees and returning the greater of the two, plus one for the current node.
 
 #### Solution & Visualize:
 The animation/visualization below demonstrates how the algorithm works.
