@@ -1,18 +1,29 @@
 function binaryTreeSolution(root, args)
 {
-    // if (! root.includes(p) || ! root.includes(q)) {
-    //     document.getElementsByClassName('sv-input')[0]
-    //             .nextElementSibling
-    //             .innerText = 'The values of p and q must exist within the tree.';
-    // }
+    let p = parseInt(args[1]);
+    let q = parseInt(args[2]);
 
-    let p = args[1];
-    let q = args[2];
-    let lca = findLCA(root, p, q, []);
+    let feedbackElement;
+    if (! args[0].includes(p)) {
+        feedbackElement = document.getElementsByClassName('sv-input')[1].nextElementSibling
+        feedbackElement.innerText = 'The values of p and q must exist within the tree.';
+        feedbackElement.classList.remove('d-none');
+        return;
+    }
+    if (! args[0].includes(q)) {
+        feedbackElement = document.getElementsByClassName('sv-input')[2].nextElementSibling
+        feedbackElement.innerText = 'The values of p and q must exist within the tree.';
+        feedbackElement.classList.remove('d-none');
+        return;
+    }
+
+    let foundNodes = [];
+    let lca = findLCA(root, p, q, foundNodes);
 
     // Display the max depth
     animatorModule.displayOutput(lca.data, 'LCA of nodes '+ p +' & '+ q +' is: ' + lca.data);
     animatorModule.highlightAnswerNodes([lca]);
+    animatorModule.highlightAnswerNodes(foundNodes);
 }
 
 // The idea is when a node is found matching p or q,

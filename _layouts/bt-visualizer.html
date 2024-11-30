@@ -147,6 +147,14 @@
 
                         args.push(array);
                     }
+                } else if (input.getAttribute('type') == 'number') {
+                    if (isNaN(parseInt(input.value))) {
+                        feedbackElement.innerText = 'Enter only numbers';
+                        feedbackElement.classList.remove('d-none');
+                        return;
+                    }
+
+                    args.push(input.value);
                 } else {
                     if (input.getAttribute('validation')) {
                         let regex = new RegExp(input.getAttribute('validation'));
