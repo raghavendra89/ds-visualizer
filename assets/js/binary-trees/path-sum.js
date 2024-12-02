@@ -1,6 +1,7 @@
-function binaryTreeSolution(root, targetSum = 23)
+function binaryTreeSolution(root, args)
 {
     let sum = 0;
+    let targetSum = args[1];
     let nodes = [];
     let exists = 'FALSE';
     [exists, nodes] = checkIfPathExists(root, sum, targetSum, exists, nodes);

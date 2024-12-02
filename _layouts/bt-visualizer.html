@@ -16,10 +16,7 @@
 
                 <div class="d-flex justify-center gap-3">
                     <div class="post-tag">
-                        Total Likes: 1250
-                    </div>
-                    <div class="post-tag">
-                        Stack
+                        Binary Trees
                     </div>
                     <div class="post-tag">
                         JavaScript
@@ -204,26 +201,6 @@
                 binaryTreeSolution(root, args);
             }, 500);
         });
-
-        function highlightCharacter(string, index) {
-            let highlightText = '<div class="sv-comment-highlight">';
-            highlightText += string.substr(0, index);
-            highlightText += '<span class="sv-comment-highlight-char">'+ string.substr(index, 1) +'</span>';
-            highlightText += string.substr(index + 1);
-            highlightText += '</div>';
-
-            return highlightText;
-        }
-
-        function highlightSubstring(string, startIndex, length) {
-            let highlightText = '<div class="sv-comment-highlight">';
-            highlightText += string.substr(0, startIndex);
-            highlightText += '<span class="sv-comment-highlight-char">'+ string.substr(startIndex, length) +'</span>';
-            highlightText += string.substr(startIndex + length);
-            highlightText += '</div>';
-
-            return highlightText;
-        }
     </script>
 </body>
 </html>
