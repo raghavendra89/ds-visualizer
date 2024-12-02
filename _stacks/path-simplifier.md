@@ -5,6 +5,7 @@ inputs:
   - type: string
     label: Please enter the UNIX path
     regex: ^((?!\\).)*$
+    default: /home/user//Documents/../Pictures
 ---
 
 #### Problem:

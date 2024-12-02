@@ -5,8 +5,10 @@ alt: Find The Next Greater Element
 inputs:
   - type: array
     label: Please enter the input array
+    default: 5, 9, 3, 21, 18
   - type: number
     label: Please enter the reference number
+    default: 9
 ---
 
 #### Problem:

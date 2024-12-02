@@ -243,6 +243,22 @@ for: Stacks
 
             return highlightText;
         }
+
+        function highlightArray(array, index) {
+            let highlightText = '<div class="sv-comment-highlight">';
+            for (var i = 0; i < array.length; i++) {
+                if (i == index) {
+                    highlightText += '<span class="sv-comment-highlight-char">'+ array[i] +'</span>,';
+                    continue;
+                }
+
+                highlightText += array[i] + ',';
+            }
+            highlightText = highlightText.slice(0, highlightText.length - 1);
+            highlightText += '</div>';
+
+            return highlightText;
+        }
     </script>
 </body>
 </html>

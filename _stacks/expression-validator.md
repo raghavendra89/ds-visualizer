@@ -5,6 +5,7 @@ inputs:
   - type: string
     label: Please enter the input string
     regex: ^([\d\s+\-\*\/\(\)\[\]\{\}]+)$
+    default: 5 + [7 * (8 + 5])
 ---
 
 #### Problem:

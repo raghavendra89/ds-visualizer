@@ -4,19 +4,19 @@
         {% if input.type == 'string' %}
             <div class="mb-4">
                 <label>{{ input.label }}</label>
-                <input type="text" class="sv-input" name="" validation="{{ input.regex }}">
+                <input type="text" class="sv-input" name="" validation="{{ input.regex }}" value="{{ input.default }}">
                 <div class="sv-input-feedback d-none">{{ input.feedback }}</div>
             </div>
         {% elsif input.type == 'number' %}
             <div class="mb-4">
                 <label>{{ input.label }}</label>
-                <input type="number" class="sv-input" name="">
+                <input type="number" class="sv-input" name="" value="{{ input.default }}">
                 <div class="sv-input-feedback d-none">This is the custom help text for this input</div>
             </div>
         {% else %}
             <div class="mb-4">
                 <label>{{ input.label }}</label>
-                <input type="text" class="sv-input sv-input-array" name="">
+                <input type="text" class="sv-input sv-input-array" name="" value="{{ input.default }}">
                 <div class="sv-input-feedback d-none">Enter the array elements followed by a comma</div>
             </div>
         {% endif %}

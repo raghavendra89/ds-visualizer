@@ -5,6 +5,7 @@ inputs:
   - type: string
     label: Please enter the input string
     regex: ^[a-z]+$
+    default: bcabc
     feedback: The string should only contain the lowercase English letters.
 ---
 

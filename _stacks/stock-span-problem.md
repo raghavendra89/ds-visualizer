@@ -4,6 +4,7 @@ title: Stock Span Problem
 inputs:
   - type: array
     label: Please enter the input array
+    default: 150, 120, 140, 160, 140, 145, 150
 ---
 
 #### Problem:

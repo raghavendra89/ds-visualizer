@@ -5,8 +5,10 @@ inputs:
   - type: string
     label: Please enter the input string
     regex: .?\[.+\]
+    default: "[X[YZ][AB]][MN]"
   - type: number
     label: Please enter the start index
+    default: 0
 ---
 
 #### Problem:

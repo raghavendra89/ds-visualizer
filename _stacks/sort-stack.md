@@ -4,6 +4,7 @@ title: Sort A Given Stack
 inputs:
   - type: array
     label: Please enter the input array
+    default: 36, 9, 22, 75, 92
 ---
 
 #### Problem:
