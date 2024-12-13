@@ -4,6 +4,7 @@ title: Path Sum
 inputs:
   - type: number
     label: Please enter the target sum
+    default: 23
 default_nodes: 1,2,3,4,null,6,7,8,9,null,null,null,13
 ---
 

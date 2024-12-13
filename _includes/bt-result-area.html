@@ -11,13 +11,13 @@
         {% if input.type == 'string' %}
             <div class="mb-4">
                 <label>{{ input.label }}</label>
-                <input type="text" class="sv-input" name="" validation="{{ input.regex }}">
+                <input type="text" class="sv-input" name="" validation="{{ input.regex }}" value="{{ input.default }}">
                 <div class="sv-input-feedback d-none">{{ input.feedback }}</div>
             </div>
         {% elsif input.type == 'number' %}
             <div class="mb-4">
                 <label>{{ input.label }}</label>
-                <input type="number" class="sv-input" name="" validation="{{ input.regex }}">
+                <input type="number" class="sv-input" name="" validation="{{ input.regex }}" value="{{ input.default }}">
                 <div class="sv-input-feedback d-none">{{ input.feedback }}</div>
             </div>
         {% else %}
